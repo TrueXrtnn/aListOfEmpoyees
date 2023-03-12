@@ -53,7 +53,7 @@ public class EmployeeBook {
         for (int i = 0; i < emploee.length; i++) {
             if (emploee[i] != null && emploee[i].getDepartment().equals(department)) amountOfWorkers++;
         }
-        average = salaryExpenses();
+        average = salaryExpensesForDepartment(department);
         average = average / amountOfWorkers;
         System.out.println(average);
     }
