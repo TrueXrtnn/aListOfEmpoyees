@@ -59,40 +59,88 @@ public class EmployeeBook {
     }
 
     public void maxSalary() {
-        int maxSalary = 0;
+        boolean condition;
         for (int i = 0; i < emploee.length; i++) {
-            if (emploee[i] != null && maxSalary < emploee[i].getSalary()) {
-                maxSalary = emploee[i].getSalary();
+            if (emploee[i] != null) {
+                condition = true;
+                for (int j = 0; j < emploee.length; j++) {
+                    if (emploee[j] != null && i != j) {
+                        if (emploee[i].getSalary() > emploee[j].getSalary()) {
+                        } else {
+                            condition = false;
+
+                        }
+                    }
+                }
+                if (condition) {
+                    System.out.println(" ФИО сотрудника с максимальной зарплатой: " + emploee[i].getSurname() + " " + emploee[i].getName() + " " + emploee[i].getPatronymic());
+                    break;
+                }
             }
         }
     }
 
     public void maxSalaryDepartment(String department) {
-        int maxSalary = 0;
+        boolean condition;
         for (int i = 0; i < emploee.length; i++) {
-            if (emploee[i] != null && emploee[i].getDepartment().equals(department)) {
-                if (maxSalary < emploee[i].getSalary()) {
-                    maxSalary = emploee[i].getSalary();
+            if (emploee[i] != null && emploee[i].equals(department)) {
+                condition = true;
+                for (int j = 0; j < emploee.length; j++) {
+                    if (emploee[j] != null && i != j && emploee[j].equals(department)) {
+                        if (emploee[i].getSalary() > emploee[j].getSalary()) {
+                        } else {
+                            condition = false;
+
+                        }
+                    }
+                }
+                if (condition) {
+                    System.out.println(" ФИО сотрудника с максимальной зарплатой: " + emploee[i].getSurname() + " " + emploee[i].getName() + " " + emploee[i].getPatronymic());
+                    break;
                 }
             }
         }
     }
 
     public void minSalary() {
-        int minSalary = 0;
+        boolean condition;
         for (int i = 0; i < emploee.length; i++) {
-            if (emploee[i] != null && minSalary > emploee[i].getSalary()) {
-                minSalary = emploee[i].getSalary();
+            if (emploee[i] != null) {
+                condition = true;
+                for (int j = 0; j < emploee.length; j++) {
+                    if (emploee[j] != null && i != j) {
+                        if (emploee[i].getSalary() < emploee[j].getSalary()) {
+                        } else {
+                            condition = false;
+
+                        }
+                    }
+                }
+                if (condition) {
+                    System.out.println(" ФИО сотрудника с минимальной зарплатой: " + emploee[i].getSurname() + " " + emploee[i].getName() + " " + emploee[i].getPatronymic());
+                    break;
+                }
             }
         }
     }
 
     public void minSalaryDepartment(String department) {
-        int minSalary = 0;
+        boolean condition;
         for (int i = 0; i < emploee.length; i++) {
-            if (emploee[i].getDepartment().equals(department)) {
-                if (emploee[i] != null && minSalary > emploee[i].getSalary()) {
-                    minSalary = emploee[i].getSalary();
+            if (emploee[i] != null && emploee[i].equals(department)) {
+                condition = true;
+                for (int j = 0; j < emploee.length; j++) {
+                    if (emploee[j] != null && i != j && emploee[j].equals(department)) {
+                        if (emploee[i].getSalary()< emploee[j].getSalary()) {
+                        } else {
+                            condition = false;
+
+                        }
+                    }
+                }
+                if (condition) {
+                    System.out.println(" ФИО сотрудника с минимальной зарплатой: " + emploee[i].getSurname() + " " + emploee[i].getName() + " " + emploee[i].getPatronymic());
+                    break;
                 }
             }
         }
@@ -153,7 +201,7 @@ public class EmployeeBook {
 
     public void moreSalary(int moreSalary) {
         for (int i = 0; i < emploee.length; i++) {
-            if (emploee[i] != null && moreSalary < emploee[i].getSalary()) {
+            if (emploee[i] != null && moreSalary <= emploee[i].getSalary()) {
                 System.out.println("id:" + emploee[i].getId() + " ФИО: " + emploee[i].getSurname() + " " + emploee[i].getName() + " " + emploee[i].getPatronymic() + " Зарплата: " + emploee[i].getSalary());
             }
         }
@@ -192,7 +240,8 @@ public class EmployeeBook {
             }
         }
     }
-    public void departmentFullInformation(){
+
+    public void departmentFullInformation() {
         String[] departments = new String[5];
         departments[0] = "1";
         departments[1] = "2";
@@ -200,17 +249,16 @@ public class EmployeeBook {
         departments[3] = "4";
         departments[4] = "5";
         for (int i = 0; i < departments.length; i++) {
-            System.out.println("сотрудники отдела - "+ departments[i]);
+            System.out.println("сотрудники отдела - " + departments[i]);
             for (int j = 0; j < emploee.length; j++) {
-                if (emploee[j]!=null&&emploee[j].getDepartment().equals(departments[i])) {
-                    System.out.println(" ФИО: " + emploee[j].getSurname() + " " + emploee[j].getName() + " " + emploee[j].getPatronymic() );
+                if (emploee[j] != null && emploee[j].getDepartment().equals(departments[i])) {
+                    System.out.println(" ФИО: " + emploee[j].getSurname() + " " + emploee[j].getName() + " " + emploee[j].getPatronymic());
 
                 }
             }
         }
 
     }
-
 
 
     public EmployeeBook() {

@@ -12,5 +12,7 @@ public class Main {
         employeeBook.allEmployeesAndFullInformation();
         employeeBook.departmentFullInformation();
         employeeBook.moreSalary(10000);
+        employeeBook.maxSalary();
+        employeeBook.minSalary();
     }
 }
