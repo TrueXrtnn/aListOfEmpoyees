@@ -1,5 +1,6 @@
 public class Emploee {
-    static int id = 0;
+    private static int number;
+    private final int id;
     private String surname;
     private String name;
     private String patronymic;
@@ -12,7 +13,8 @@ public Emploee(String surname, String name, String patronymic, String department
     this.patronymic=patronymic;
     this.department=department;
     this.salary=salary;
-    id++;
+    number++;
+    this.id=getNumber();
 }
 
     public String getSurname() {
@@ -53,4 +55,16 @@ public Emploee(String surname, String name, String patronymic, String department
                 ", Зарплата=" + salary +
                 '}';
     }
+
+    private int getNumber() {
+        return number;
+    }
+    public int getId(){
+    return id;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
 }
