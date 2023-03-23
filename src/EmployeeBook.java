@@ -1,8 +1,8 @@
-public class EmployeeBook {
+public class EmployeeBook {//класс для хранения и работы с данными сотрудника 
     private Emploee[] emploee = new Emploee[50];
 
 
-    public void allEmployeesAndFullInformation() {
+    public void allEmployeesAndFullInformation() { // получение полной информации о всех сотрудниках
         for (int i = 0; i < emploee.length; i++) {
             if (emploee[i] != null) {
                 System.out.println(emploee[i]);
@@ -10,7 +10,7 @@ public class EmployeeBook {
         }
     }
 
-    public void departmentInformation(String department) {
+    public void departmentInformation(String department) { // получение полной информации о сотрудниках определенного отдела 
         System.out.println("Сотрудники отдела - " + department);
         for (int i = 0; i < emploee.length; i++) {
             if (emploee[i] != null && emploee[i].getDepartment().equals(department)) {
@@ -20,7 +20,7 @@ public class EmployeeBook {
         }
     }
 
-    public int salaryExpenses() {
+    public int salaryExpenses() { //подсчет затрат на зарплаты всем сотрудникам 
         int sumSalary = 0;
         for (int i = 0; i < emploee.length; i++) {
             if (emploee[i] != null) {
@@ -30,7 +30,7 @@ public class EmployeeBook {
         return sumSalary;
     }
 
-    public int salaryExpensesForDepartment(String department) {
+    public int salaryExpensesForDepartment(String department) {//подсчет затрат на зарплаты всем сотрудникам одного отдела 
         int sumSalary = 0;
         for (int i = 0; i < emploee.length; i++) {
             if (emploee[i] != null && emploee[i].getDepartment().equals(department)) {
@@ -40,14 +40,14 @@ public class EmployeeBook {
         return sumSalary;
     }
 
-    public void averageSalary() {
+    public void averageSalary() { // средняя зарплата у сотрудника 
         int average;
         average = salaryExpenses();
         average = average / emploee.length;
         System.out.println(average);
     }
 
-    public void averageSalaryForDepartment(String department) {
+    public void averageSalaryForDepartment(String department) { // средняя заплата у сотрудника внутри одного отдела 
         int average;
         int amountOfWorkers = 0;
         for (int i = 0; i < emploee.length; i++) {
@@ -58,7 +58,7 @@ public class EmployeeBook {
         System.out.println(average);
     }
 
-    public void maxSalary() {
+    public void maxSalary() { //вывод сотрудника с самой большой зарплатой 
         boolean condition;
         for (int i = 0; i < emploee.length; i++) {
             if (emploee[i] != null) {
@@ -80,7 +80,7 @@ public class EmployeeBook {
         }
     }
 
-    public void maxSalaryDepartment(String department) {
+    public void maxSalaryDepartment(String department) { //вывод сотрудника с максивальной зарплатой среди одного отдела 
         boolean condition;
         for (int i = 0; i < emploee.length; i++) {
             if (emploee[i] != null && emploee[i].equals(department)) {
@@ -102,7 +102,7 @@ public class EmployeeBook {
         }
     }
 
-    public void minSalary() {
+    public void minSalary() {//вывод сотрудника с минимальной зарплатой 
         boolean condition;
         for (int i = 0; i < emploee.length; i++) {
             if (emploee[i] != null) {
@@ -124,7 +124,7 @@ public class EmployeeBook {
         }
     }
 
-    public void minSalaryDepartment(String department) {
+    public void minSalaryDepartment(String department) {//вывод сотрудника с минимальной зарплатой среди одного отдела 
         boolean condition;
         for (int i = 0; i < emploee.length; i++) {
             if (emploee[i] != null && emploee[i].equals(department)) {
@@ -146,7 +146,7 @@ public class EmployeeBook {
         }
     }
 
-    public void fioEmployee() {
+    public void fioEmployee() { // вывод ФИО все сотрудников
         for (int i = 0; i < emploee.length; i++) {
             if (emploee[i] != null) {
                 System.out.println("Employee[" + i + "] - " + emploee[i].getSurname() + " " + emploee[i].getName() + " " + emploee[i].getPatronymic());
@@ -154,7 +154,7 @@ public class EmployeeBook {
         }
     }
 
-    public void fioEmployeeDepartment(String department) {
+    public void fioEmployeeDepartment(String department) { // вывод ФИО всех сотрудников одного отдела 
         System.out.println("Сотрудники отдела - " + department);
         for (int i = 0; i < emploee.length; i++) {
             if (emploee[i] != null && emploee[i].getDepartment().equals(department)) {
@@ -163,7 +163,7 @@ public class EmployeeBook {
         }
     }
 
-    public void salaryIndexation(int interest) {
+    public void salaryIndexation(int interest) { // индексация зарплат всех сотрудников 
         for (int i = 0; i < emploee.length; i++) {
             if (emploee[i] != null) {
                 double newSalary = 0;
@@ -176,7 +176,7 @@ public class EmployeeBook {
         }
     }
 
-    public void salaryIndexationDepartment(int interest, String department) {
+    public void salaryIndexationDepartment(int interest, String department) { // индексация зарплат сотрудников одного отдела 
         if (interest > 0) {
             for (int i = 0; i < emploee.length; i++) {
                 if (emploee[i] != null && emploee[i].getDepartment().equals(department)) {
@@ -191,7 +191,7 @@ public class EmployeeBook {
         }
     }
 
-    public void lessSalary(int lessSalary) {
+    public void lessSalary(int lessSalary) { // вывод всех сотрудников с зарплатой меньше заданного числа 
         for (int i = 0; i < emploee.length; i++) {
             if (emploee[i] != null && lessSalary > emploee[i].getSalary()) {
                 System.out.println("id:" + emploee[i].getId() + " ФИО: " + emploee[i].getSurname() + " " + emploee[i].getName() + " " + emploee[i].getPatronymic() + " Зарплата: " + emploee[i].getSalary());
@@ -199,7 +199,7 @@ public class EmployeeBook {
         }
     }
 
-    public void moreSalary(int moreSalary) {
+    public void moreSalary(int moreSalary) { // вывод всех сотрудников с зарплатой больше заданного числа 
         for (int i = 0; i < emploee.length; i++) {
             if (emploee[i] != null && moreSalary <= emploee[i].getSalary()) {
                 System.out.println("id:" + emploee[i].getId() + " ФИО: " + emploee[i].getSurname() + " " + emploee[i].getName() + " " + emploee[i].getPatronymic() + " Зарплата: " + emploee[i].getSalary());
@@ -207,7 +207,7 @@ public class EmployeeBook {
         }
     }
 
-    public void newEmployee(String surname, String name, String patronymic, String department, int salary) {
+    public void newEmployee(String surname, String name, String patronymic, String department, int salary) { // метод для добавления нового сотрудника в базу 
         for (int i = 0; i < emploee.length; i++) {
             if (emploee[i] == null) {
                 emploee[i] = new Emploee(surname, name, patronymic, department, salary);
@@ -216,7 +216,7 @@ public class EmployeeBook {
         }
     }
 
-    public void deleteEmployee(String surname, String name, String patronymic, int id) {
+    public void deleteEmployee(String surname, String name, String patronymic, int id) { // метод для удаления сотрудника из базы 
         for (int i = 0; i < emploee.length; i++) {
             if (emploee[i] != null && surname.equals(emploee[i].getSurname()) && name.equals(emploee[i].getName()) && patronymic.equals(emploee[i].getPatronymic()) && id == emploee[i].getId()) {
                 emploee[i] = null;
@@ -225,7 +225,7 @@ public class EmployeeBook {
         }
     }
 
-    public void changeSalary(String surname, String name, String patronymic, int salary) {
+    public void changeSalary(String surname, String name, String patronymic, int salary) { // метод для изменения зарплаты у конкретного сотрудника 
         for (int i = 0; i < emploee.length; i++) {
             if (emploee[i] != null && surname.equals(emploee[i].getSurname()) && name.equals(emploee[i].getName()) && patronymic.equals(emploee[i].getPatronymic())) {
                 emploee[i].setSalary(salary);
@@ -233,7 +233,7 @@ public class EmployeeBook {
         }
     }
 
-    public void changeDepartment(String surname, String name, String patronymic, String department) {
+    public void changeDepartment(String surname, String name, String patronymic, String department) { // метод для изменения отдела у конкретного сотрудника 
         for (int i = 0; i < emploee.length; i++) {
             if (emploee[i] != null && surname.equals(emploee[i].getSurname()) && name.equals(emploee[i].getName()) && patronymic.equals(emploee[i].getPatronymic())) {
                 emploee[i].setDepartment(department);
@@ -241,7 +241,7 @@ public class EmployeeBook {
         }
     }
 
-    public void departmentFullInformation() {
+    public void departmentFullInformation() { // вывод списка сотрудников по отделам 
         String[] departments = new String[5];
         departments[0] = "1";
         departments[1] = "2";
@@ -260,8 +260,7 @@ public class EmployeeBook {
 
     }
 
-
-    public EmployeeBook() {
+    public EmployeeBook() { // храниение данных о сотрудниках 
         emploee[0] = new Emploee("Иванов", "Василий", "Гвазимодович", "1", 46000);
 
         emploee[1] = new Emploee("Петров", "Михаил", "Владимирович", "2", 47000);
