@@ -2,6 +2,7 @@
 public class Main {
 
     public static void main(String[] args) {
+        // проверка работы программы 
         EmployeeBook employeeBook = new EmployeeBook();
         employeeBook.allEmployeesAndFullInformation();
         employeeBook.departmentInformation("1");
