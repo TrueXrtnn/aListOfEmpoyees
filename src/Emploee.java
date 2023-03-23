@@ -1,4 +1,4 @@
-public class Emploee {
+public class Emploee { // класс для создания объекта работник 
     private static int number;
     private final int id;
     private String surname;
@@ -14,7 +14,7 @@ public Emploee(String surname, String name, String patronymic, String department
     this.department=department;
     this.salary=salary;
     number++;
-    this.id=getNumber();
+    this.id=getNumber();//присваивание каждому работнику личного номера 
 }
 
     public String getSurname() {
